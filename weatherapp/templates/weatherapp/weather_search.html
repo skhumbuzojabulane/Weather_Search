@@ -1,28 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Weather Search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .custom-bg {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        
-        @media (max-width: 576px) {
-            .custom-bg {
-                padding: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body class="d-flex align-items-center justify-content-center" style="height: 100vh; background-image: url('static/img/background.jpg'); background-size: cover;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 custom-bg">
                 <h1 class="text-center mb-4">Weather Search</h1>
-                <form method="GET" action="" class="text-center">
+                <form method="GET" action="" class="text-center" onsubmit="showLoading()">
                     <div class="form-group">
                         <label for="city">Enter city name:</label>
                         <input type="text" id="city" name="city" class="form-control">
@@ -32,7 +21,7 @@
                 {% if weather_data %}
                 <div id="weather-data" class="mt-4">
                     <h2 class="h5">Weather in {{ weather_data.name }}, {{ weather_data.sys.country }}</h2><br/>
-                    <p><strong>Temperature:</strong> {{ weather_data.main.temp }} &deg;C</p><hr>
+                    <p><strong>Temperature:</strong> {{ weather_data.main.temp }} Kelvin</p><hr>
                     <p><strong>Weather:</strong> {{ weather_data.weather.0.description }}</p><hr>
                     <p><strong>Latitude:</strong> {{ weather_data.coord.lat }}</p><hr>
                     <p><strong>Longitude:</strong> {{ weather_data.coord.lon }}</p><hr>
@@ -45,5 +34,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

@@ -68,7 +68,7 @@ def weather_search(request):
                     file.write('\n')
 
                 # Convert temperature from Kelvin to Celsius
-                current_weather_data['main']['temp'] = f"{kelvin_to_celsius(current_weather_data['main']['temp'])}°C"
+                current_weather_data['main']['temp'] = f"{int(kelvin_to_celsius(current_weather_data['main']['temp']))}°C"
                 weather_data = current_weather_data  # Display current weather in template
 
     return render(request, 'weatherapp/weather_search.html', {'weather_data': weather_data})
