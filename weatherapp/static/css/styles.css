@@ -1,0 +1,13 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.custom-bg {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
